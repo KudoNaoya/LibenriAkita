@@ -1,0 +1,38 @@
+:root {
+    --gap: 24px;        /* 画像と画像の間隔 */
+    --height: 250px;    /* 画像の表示高さ */
+    --duration: 45s;    
+  }
+
+  .marquee {
+    overflow: hidden;
+    /* 端をフェード（対応ブラウザで有効） */
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+  }
+
+  .marquee__track1 {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    width: max-content;                 /* 中身の幅に合わせる */
+    animation: scroll var(--duration) linear infinite;
+  }
+
+  .marquee__track2 {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    width: max-content;                 /* 中身の幅に合わせる */
+    animation: scroll-ltr var(--duration) linear infinite;
+  }
+
+  .marquee__track1 img,
+  .marquee__track2 img{
+  height: var(--height);
+  width: auto;
+  display: block;
+  flex: 0 0 auto;
+}
+
+  

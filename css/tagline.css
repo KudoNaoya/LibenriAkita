@@ -1,0 +1,19 @@
+/* ============= TAGLINE ============= */
+.tagline{
+  text-align:center;
+  padding: 36px 0 8px;
+  margin-top:80px;
+  margin-bottom:100px;
+}
+
+.tagline p{
+  font-size:.95rem;
+}
+.tagtitle{
+  color:#00A0E9;
+  font-weight:800;
+  letter-spacing:.2em;
+  font-size:200%;
+  margin-bottom:20px;
+}
+

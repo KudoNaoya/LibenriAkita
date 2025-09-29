@@ -1,0 +1,53 @@
+@keyframes ripple {
+  0% {box-shadow: 0 0 0 0 #1B85FB;}
+  70% {box-shadow: 0 0 0 10px rgb(27 133 251 / 0%);}
+  100% {box-shadow: 0 0 0 0 rgb(27 133 251 / 0%);}
+}
+
+@keyframes headeranime{
+  0%{ transform: translateY(-200%); }
+  100%{ transform: translateY(0); }
+}
+
+@keyframes heroanime{
+  0%,65%{ opacity:0; }
+  100%{ opacity:1; }
+}
+
+@keyframes herotitle{
+  0%{
+    opacity:1;
+    background-color:#00A0E9;
+  }
+  80%{
+    opacity:1;
+    background-color:#00A0E9;
+  }
+  100%{
+
+    background-color:#ffffff00;
+  }
+}
+
+/* シームレスループ：同じ並びを2回並べて -50% まで移動 */
+  @keyframes scroll {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes scroll-ltr {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+
+/* 初期状態（非表示＆下に少しずらす） */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 表示状態 */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+

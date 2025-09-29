@@ -1,0 +1,105 @@
+:root{
+  --footer-bg: #08A7E7;   /* 画像の青に近い色 */
+  --footer-text: #fff;
+}
+
+.site-footer{
+  position: relative;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 36px 0 28px;
+  overflow: visible;            /* 上にはみ出すので可視に */
+}
+.site-footer a{ color: var(--footer-text); text-decoration: none; }
+
+.site-footer::before{
+  content:"";
+  position:absolute;
+  bottom:100%;
+  left:50%;
+  width:100vw;
+  height:min(20vw, 200px);
+  background:var(--footer-bg);
+  border-top-left-radius:50% 100%;
+  border-top-right-radius:50% 100%;
+  transform:translateX(-50%) scaleX(1.6);  /* ← 横方向の“広がり”だけ変形 */
+  transform-origin:bottom center;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* 上段：ロゴ / ナビ / CTA */
+.footer-top {
+  display: flex;
+  justify-content: space-between; /* 左右に配置 */
+  align-items: center;
+  gap: 24px;
+}
+.footer-brand img{ 
+  max-width:80%;         /* 画像の比率に合わせて調整 */
+  width: auto;
+  display: block;
+}
+
+.footer-nav ul {
+  display: flex;
+  gap: 28px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.footer-nav a{ opacity: .95; }
+.footer-nav a:hover{ opacity: 1; text-decoration: underline; }
+
+/* 右側のアウトラインボタン2つ */
+.footer-cta {
+  margin-top:40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  white-space: nowrap;
+
+
+}
+
+
+.fbtn{
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .6em 1.1em;
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 10px;
+  font-weight: 700;
+  line-height: 1;
+  background: transparent;
+  transition: background .2s ease, transform .15s ease;
+  cursor: pointer;
+}
+.fbtn:hover{ background: rgba(255,255,255,.14); transform: translateY(-1px); }
+/* ちいさな封筒アイコン（CSSだけで） */
+.fbtn .ico-mail{
+  width: 1.15em; height: 1.15em; display: inline-block; position: relative;
+}
+.fbtn .ico-mail::before,
+.fbtn .ico-mail::after{
+  content: ""; position: absolute; inset: 0; border: 2px solid currentColor; border-radius: 3px;
+}
+.fbtn .ico-mail::after{
+  border-top: none; transform: translateY(-1px);
+  clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%); /* 封筒のフラップ */
+}
+
+/* 下段：左リンク群 / 右コピーライト */
+.footer-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+  font-size: .92rem;
+  opacity: .95;
+}
+.footer-links{ display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a{ opacity: .95; }
+.footer-links a:hover{ text-decoration: underline; opacity: 1; }
+.copy{ white-space: nowrap; }

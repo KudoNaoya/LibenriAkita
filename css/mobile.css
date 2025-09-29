@@ -1,0 +1,316 @@
+/* ============= RESPONSIVE ============= */
+.mbr{
+    display:none;
+}
+@media (max-width: 980px){
+  .works .cards{ grid-template-columns: repeat(2, 1fr); }
+  .product-grid{ grid-template-columns: 1fr; }
+  .members{ grid-template-columns: repeat(3, 1fr); }
+  .gallery{ grid-template-columns: repeat(4, 1fr); }
+  .lead-wrap{ grid-template-columns: 1fr; text-align:center; }
+  .lead-photo{ margin-inline: auto; }
+}
+@media (max-width: 640px){
+  nav ul{ display:none; }
+  .hero{ padding: 56px 0 40px; }
+  .works .cards{ grid-template-columns: 1fr; }
+  .members{ grid-template-columns: repeat(2, 1fr); }
+  .gallery{ grid-template-columns: repeat(3, 1fr); }
+  .news-item{ grid-template-columns: 1fr; text-align:left; }
+  .info th{ width:auto; }
+  .mbr{display:block;}
+}
+@media (max-width: 980px){
+  .footer-top{ grid-template-columns: 1fr; gap: 18px; text-align: center; }
+  .footer-brand img{ margin-inline: auto; }
+  .footer-nav ul{ flex-wrap: wrap; }
+  .footer-cta{ justify-content: center; }
+  .footer-bottom{ flex-direction: column; text-align: center; }
+  .copy{ white-space: normal; }
+  
+}
+/* ==========================================================================
+   HEADER / NAV
+   ========================================================================== */
+.nav-toggle{
+  display: none;
+  width: 44px; height: 44px;
+  border: 0; background: transparent;
+  border-radius: 10px; cursor: pointer;
+  align-items: center; justify-content: center;
+}
+.nav-toggle .ham1{
+  display: block;
+  width: 14px; height: 2px;
+  background: #00A0E9;
+  margin: 2px 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-toggle .ham2{
+  display: block;
+  width: 22px; height: 2px;
+  background: #00A0E9;
+  margin: 2px 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-toggle .ham3{
+  display: block;
+  width: 14px; height: 2px;
+  background: #00A0E9;
+  margin: 2px 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.sp-only { display: none; }
+
+/* モバイルでだけ表示 */
+@media (max-width: 640px){
+  #primaryNav .sp-only { display: block; }
+}
+@media (max-width: 640px){
+  #top, #works, #products, #member, #company, #form{
+    scroll-margin-top: calc(var(--header-h, 72px) + 18px);
+  }
+}
+@media (max-width:640px){
+  section.fade-in { opacity: 1 !important; transform: none !important; }
+}
+
+/* <= 640px: ナビをハンバーガー化、右上のボタンは圧縮のため非表示 */
+@media (max-width: 640px){
+  /* 既存ナビを非表示（ドロワーに置き換え） */
+  nav ul{ display: none; }
+
+  /* ハンバーガー表示 */
+
+  .nav-toggle{
+    display: flex;          /* 既存 */
+    flex-direction: column; /* ← これを追加 */
+    justify-content: center;
+    align-items: center;
+    gap: 5px;               /* ← すき間を明示（marginでもOK） */
+  }
+
+  /* 右端のヘッダーボタンは畳む（必要なら消してください） */
+  header.topbar .hbtn{ display: none; }
+
+  /* ドロワーメニュー（閉） */
+  #primaryNav{
+    position: fixed;
+    inset: calc(var(--header-h, 64px)) 0 auto 0;
+    background: rgba(255,255,255,.98);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .18s ease, opacity .18s ease;
+    z-index: 39;
+  }
+  /* ドロワーメニュー（開） */
+  #primaryNav.open{
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #primaryNav ul{
+    display:flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 16px;
+  }
+  #primaryNav a{
+    display:block;
+    padding: 12px 10px;
+    border-radius: 10px;
+  }
+
+  /* 背景スクロール抑止 */
+  body.no-scroll{ overflow: hidden; }
+
+  /* ハンバーガー → × のトグル */
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+}
+
+/* ==========================================================================
+   WORKS
+   ========================================================================== */
+
+/* <= 980px: 3列 → 2列 */
+@media (max-width: 980px){
+  .works .cards{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* <= 640px: 2列 → 1列 */
+@media (max-width: 640px){
+  .works .cards{ grid-template-columns: 1fr; }
+}
+
+/* ワイド画像（ヒーロー下の横長写真）：<=980px は全幅 */
+@media (max-width: 980px){
+  .wide-image{
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+  }
+}
+
+/* ==========================================================================
+   PRODUCTS
+   ========================================================================== */
+
+/* <= 980px: 2列 → 1列 */
+@media (max-width: 980px){
+  .product-grid{ grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   MEMBER
+   ========================================================================== */
+
+/* <= 980px: リード 2カラム → 1カラム、カード 4列 → 2列 */
+@media (max-width: 980px){
+  .lead-wrap{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .lead-photo{
+    margin-inline: auto;
+    max-width: 380px;
+  }
+  .members{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* <= 480px: カード 2列 → 1列 */
+@media (max-width: 480px){
+  .members{ grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   CONTACT (フォーム)
+   ========================================================================== */
+
+/* <= 640px: ラベル/入力を縦積み、送信ボタンは全幅 */
+@media (max-width: 640px){
+  .contact-item{
+    flex-direction: column;
+    align-items: stretch;
+    gap: .4rem;
+  }
+  .contact-label{ flex: 0 0 auto; }
+  .formspacer{ display: none; }
+  .contact-submit{ width: 100%; }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer-cta-mobile{
+    display:none;
+}
+/* <= 980px: 上段/下段ともに縦積み＋中央寄せ */
+@media (max-width: 980px){
+    .footer-cta{
+        display:none;
+    }
+  .footer-top{
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-brand img{ margin-inline: auto; }
+  .footer-nav ul{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-cta-mobile{
+    /* 中央に置く */
+    width: min(420px, 92%);
+    margin: 16px auto 10px;
+
+    /* 2列にして同じ幅に */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .footer-cta-mobile .fbtn{
+    /* 同じ高さに */
+    height: 48px;
+    padding: 0 16px;
+
+    /* 見た目を揃える（必要なら調整） */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 12px;
+
+    /* どちらも同じスタイルに統一（好みで変更OK） */
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .footer-cta-mobile .fbtn img{
+    width: 18px;
+    height: auto;
+    display: inline-block;
+  }
+
+  @media (max-width: 360px){
+    .footer-cta-mobile{
+        grid-template-columns: 1fr;
+    }
+    }
+
+  .footer-bottom{
+    flex-direction: column;
+    text-align: center;
+  }
+  .copy{ white-space: normal; }
+}
+
+
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.herom{
+    display:none;
+}
+.hero{
+    display:block;
+}
+@media (max-width: 640px){
+    .hero{
+        display:none;
+    }
+    .herom{
+        display:block;
+    }
+
+    .herom{
+        animation:heroanime 2s;
+        position: relative;
+        min-height: 80svh;       /* 画面の ~80% 高さ（100svhでも可） */
+        place-items: center;
+        overflow: hidden;
+        padding-top:15px;
+        }
+
+    .herotm{
+        text-align:center;
+        font-weight: 600;
+        font-size:400%;
+        color:#ffffff;
+        position: absolute;
+        top:18%;
+        animation:herotitle 3s;
+        border-radius:20px;
+        padding:10px;
+    }
+}

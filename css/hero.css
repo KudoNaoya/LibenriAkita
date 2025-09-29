@@ -1,0 +1,24 @@
+/* ============= HERO ============= */
+.hero{
+  animation:heroanime 2s;
+  position: relative;
+  min-height: 80svh;       /* 画面の ~80% 高さ（100svhでも可） */
+  place-items: center;
+  overflow: hidden;
+  padding-top:15px;
+}
+
+.herobg{
+  background-color:#009fe930;
+}
+
+.herot{
+  font-weight: 600;
+  font-size:400%;
+  color:#ffffff;
+  position: absolute;
+  top:25%;
+  animation:herotitle 3s;
+  border-radius:20px;
+  padding:10px;
+}

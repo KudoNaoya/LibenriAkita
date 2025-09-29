@@ -1,0 +1,110 @@
+/* ============= HEADER ============= */
+
+header.topbar{
+  position: fixed;
+  width:100%;
+  top:0;
+  backdrop-filter:saturate(140%) blur(8px);
+  background: rgba(255,255,255,.85);           /* ← 少し濃いめを初期に */
+  z-index: 40;
+  /* 初期は丸く・余白あり・影あり（ここを移動） */
+  margin: 15px 30px auto 30px;
+  border-radius: 30px;
+  width: calc(100% - 60px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  border-bottom: 1px solid transparent;
+
+  transition:
+    margin .28s cubic-bezier(.22,.61,.36,1),
+    border-radius .28s cubic-bezier(.22,.61,.36,1),
+    background .28s ease,
+    box-shadow .28s ease,
+    width .28s cubic-bezier(.22,.61,.36,1);
+
+  animation:headeranime 1.5s;
+}
+
+.headerbg{
+  background-color:#00A0E930;
+}
+header.topbar.scrolled{
+  margin: 0;
+  border-radius: 0;
+  width: 100%;
+  background: rgba(255,255,255,.85);
+  box-shadow: none;
+  border-bottom: 1px solid #afc7db;           /* 下線を戻す */
+}
+
+.nav-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 10px 0;
+  flex-wrap: nowrap; 
+}
+
+#header-spacer{
+  height: 0;
+  transition: height .28s cubic-bezier(.22,.61,.36,1);
+}
+
+.headerbtn{
+  cursor: pointer;
+}
+.headera{
+  cursor: pointer;
+}
+
+nav{
+  flex: 1 0 auto;               /* grow=1, shrink=0, basis=auto */
+  display:flex;
+  justify-content:center;
+}
+
+
+nav ul{
+  display:flex;
+  gap:20px;
+}
+nav a{
+  white-space: nowrap; 
+  padding:10px 8px;
+  border-radius:10px;
+  color:#174e6f;
+  font-weight:600;
+  transition: background .3s ease, color .3s ease, transform .2s ease;
+
+}
+nav a:hover{
+  background:#85c7f9;
+  transform: translateY(-2px);
+}
+
+.hlogo{
+  width:65%;
+}
+
+.hbtn{
+  white-space: nowrap; 
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  padding:.8em 1.1em;
+  margin:10px;
+  border-radius:10px;
+  background: var(--primary-strong);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.hbtn:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+#saiyou{
+  margin-left:30px;
+}

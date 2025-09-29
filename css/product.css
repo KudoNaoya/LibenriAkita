@@ -1,0 +1,68 @@
+/* ============= PRODUCTS ============= */
+section.products{
+  padding: 64px 0;
+}
+.product-grid{
+  grid-template-columns: repeat(2, 1fr);
+  align-items:stretch;
+}
+.product{
+  display:flex;
+  flex-direction: column;
+  border:1px solid #e9f3fb;
+  border-radius: var(--radius-xl);
+  overflow:hidden;
+  box-shadow: var(--shadow-sm);
+}
+.product .media{
+  padding: 18px;
+  display:grid;
+  place-items:center;
+}
+
+.product .copy{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.product .copy p{
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.producttitle{
+  color:#184b68;
+  font-size:120%;
+}
+.product p{
+  color:#5b7282;
+  font-size:.95rem;
+}
+
+
+.producttitle{
+  text-align:center;
+}
+
+.productline {
+  height: 3px;
+  width: 60%;                 /* 線の長さを固定 */
+  margin: 8px auto;           /* 中央に配置 */
+  background: #00A0E9;
+  border: none;               /* border ではなく background にする */
+}
+
+.prop {
+  text-align: center;
+  min-height: 2.5em;   /* 行数に応じて調整（例：2行分確保） */
+  display: flex;
+  align-items: flex-end; /* 下に揃える */
+  justify-content: center;
+}
+
+.prop1{
+  margin:30px;
+}
+

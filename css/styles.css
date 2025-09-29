@@ -1,0 +1,101 @@
+
+/* ============= RESET ============= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; overflow-x:clip; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Helvetica Neue", Arial, "メイリオ", Meiryo, "Yu Gothic", sans-serif; color: #2b2b2b; line-height: 1.7; background: #ffffff; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1,h2,h3,h4 { margin: 0 0 .6em; line-height: 1.2; }
+
+/* ============= THEME TOKENS ============= */
+:root{
+  --primary:#8FD3FF;         /* 明るい水色 */
+  --primary-strong:#4CB8FF;  /* アクセント濃色 */
+  --bg-soft:#EAF7FF;         /* セクション背景 */
+  --ink:#1e2a35;             /* 本文色 */
+  --muted:#6b7a86;           /* 補助文字 */
+  --white:#fff;
+  --radius-xl:20px;
+  --radius-lg:16px;
+  --radius-md:12px;
+  --shadow-sm:0 4px 14px rgba(0,0,0,.08);
+  --shadow-md:0 10px 24px rgba(0,0,0,.10);
+  --container:1080px;
+}
+
+/* ============= UTILITIES ============= */
+.container{ width: min(92%, var(--container)); margin-inline: auto; }
+.btn{ display:inline-flex; align-items:center; gap:.5em; padding:.8em 1.1em; border-radius:999px; background: var(--primary-strong); color: var(--white); font-weight: 600; box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .15s ease; }
+.btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn.btn-alt{ background: var(--primary); }
+.pill{ display:inline-block; padding:.25em .75em; border-radius:999px; background: #dff2ff; color:#2a76a5; font-weight:700; letter-spacing:.08em; font-size:.8rem; }
+.section-title{ font-size: clamp(1.6rem, 2.4vw + .6rem, 2.2rem); letter-spacing:.12em; text-align:center; color:#1b3a4b; }
+.section-sub{ text-align:center; color: #000; margin-top:-.3rem; margin-bottom:2rem; font-size:.95rem; }
+.grid{ display:grid; gap: 24px; }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============= MEMBER ============= */
+section.member{ background: var(--bg-soft); padding: 64px 0; }
+.lead-wrap{ display:grid; grid-template-columns: 330px 1fr; gap: 22px; align-items:center; padding: 18px; }
+.lead-photo{ 
+  overflow:hidden; 
+}
+.lead-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.lead-bio h3{ margin-bottom:.25em; font-size: 1.3rem; }
+.lead-bio p{ color:#5b7282; }
+
+.members{ margin-top: 28px; grid-template-columns: repeat(4, 1fr); }
+
+.person .face{ 
+  aspect-ratio: 1 / 1; 
+  object-fit: contain; 
+  object-position: center;
+}
+
+.gallery{ margin-top: 26px; grid-template-columns: repeat(6, 1fr); }
+.gallery img{ border-radius: 10px; box-shadow: var(--shadow-sm); }
+
+/* ============= NEWS ============= */
+section.news{ padding: 56px 0; }
+.news-list{ display:grid; gap:14px; max-width: 760px; margin: 22px auto 0; }
+.news-item{ display:grid; grid-template-columns: 120px 1fr auto; gap: 14px; align-items:center; padding: 12px 14px; border:1px solid #e9f3fb; border-radius: 14px; background: #fff; box-shadow: var(--shadow-sm); }
+.news-date{ font-weight:700; color:#2a76a5; }
+.news-title{ color:#22485f; }
+.news-link{ color:#1673a1; font-weight:700; }
+
+/* ============= COMPANY ============= */
+section.company{ background: var(--bg-soft); padding: 56px 0 280px;}
+.info{ max-width: 860px; margin: 26px auto 0; background:#fff; border:1px solid #e9f3fb; border-radius: 16px; overflow:hidden; box-shadow: var(--shadow-sm); }
+.info table{ width:100%; border-collapse: collapse; font-size:.95rem; }
+.info th, .info td{ padding: 14px 16px; border-bottom:1px solid #eef6fc; vertical-align: top; }
+.info th{ width: 22%; color:#2a76a5; background: #f5fbff; text-align:left; }
+.info tr:last-child th, .info tr:last-child td{ border-bottom:none; }
+
+
+.jimusyo{
+  color:#00A0E9;
+}
+
+#top, #works, #products, #member, #company, #form{
+  scroll-margin-top: calc(var(--header-h, 72px) + 12px);
+}
+body.no-scroll{
+  overflow: hidden;           /* Android/Chrome向け */
+  overscroll-behavior: contain;
+}

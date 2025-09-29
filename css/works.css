@@ -1,0 +1,189 @@
+/* ============= WORKS ============= */
+/* 大きい英字の上に日本語を重ねる */
+.section-title{
+  position: relative;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1;
+  /* 背景の大きい “WORKS” */
+  font-size: clamp(48px, 12vw, 140px);
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.75);       /* 薄く見せる */
+  margin: 40px 0 18px;                /* 下に少し余白 */
+  text-transform: uppercase;
+  pointer-events: none;               /* 選択しづらさ防止（任意） */
+}
+
+.section-title::after{
+  content: attr(data-jp);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 800;
+  color: var(--primary-strong);
+  letter-spacing: .12em;
+  background: transparent;
+  pointer-events: auto;
+}
+
+.section-title2{
+  position: relative;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1;
+  /* 背景の大きい文字 */
+  font-size: clamp(48px, 12vw, 140px);
+  letter-spacing: .18em;
+  color: #30ABE340;       /* 薄く見せる */
+  margin: 40px 0 18px;                /* 下に少し余白 */
+  text-transform: uppercase;
+  pointer-events: none;               /* 選択しづらさ防止（任意） */
+}
+
+.section-title2::after{
+  content: attr(data-jp);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 800;
+  color: var(--primary-strong);
+  letter-spacing: .12em;
+  background: transparent;
+  pointer-events: auto;
+}
+
+section.works{
+  background: var(--bg-soft);
+  padding: 56px 0;
+}
+
+section.member{
+  padding: 56px 0;
+}
+.works .cards{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cards{
+  counter-reset: works;
+}
+.card{
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow:hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+  border:1px solid #e9f3fb;
+  position: relative;
+  height:600px;
+}
+.card::after{
+  counter-increment: works;
+  content: counter(works, decimal-leading-zero);
+  position: absolute;
+  top: 25%;
+  right: 16px;
+  z-index: 2;
+  font-weight: 800;
+  font-size: clamp(30px, 6vw, 86px);
+  line-height: 1;
+  color: transparent;                               /* 中抜き */
+  -webkit-text-stroke: 5px #00A0E975;    /* 枠線色 */
+
+  pointer-events: none;
+  mix-blend-mode: multiply;                          /* 背景と自然に馴染む（任意） */
+}
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.card .thumb{
+  aspect-ratio: 16 / 10;
+  background:#eef6fb;
+  object-fit:cover;
+  width:100%;
+}
+.card .body{
+  padding:16px 16px 18px;
+}
+.card h4{
+  font-size:1.02rem;
+  color:#00A0E9;
+  margin-bottom:.35em;
+  white-space: nowrap;
+}
+.card p{
+  font-size:.92rem;
+  color:#5f7382;
+}
+.cards .more{
+  text-align:right;
+  padding: 0 8px 8px;
+}
+.wide-image{
+  margin-top:28px;
+  overflow:hidden;
+  box-shadow: var(--shadow-sm);
+  width:75%;
+  margin-left: auto;
+  border-top-left-radius:35px;
+  border-bottom-left-radius:35px;
+
+  box-shadow:
+  0 0 5px rgba(0,0,0,0.3),
+  0 0 20px rgba(0,0,0,0.4);
+}
+
+
+.page{
+  width:70%;
+  margin:10px;
+  padding:5px 15px 5px 5px;
+  color:#00A0E9;
+  border:1px #00A0E9 solid;
+  border-radius:30px;
+  position:absolute;
+  top:90%;
+  white-space:nowrap;
+  transition: background .3s ease, color .3s ease, transform .2s ease;
+  
+}
+
+.insta{
+  margin:15px;
+  width:50px;
+}
+
+.page a{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ←右端へ */
+  width: 100%;
+}
+
+.page:hover{
+  background-color:#00A0E9;
+  color:#fff;
+  transform: translateY(-2px);
+  font-weight: 400;
+}
+
+
+.linkarow{
+  width: 22px;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.arow{
+  color:#fff;
+}
+
+.arow :hover{
+  
+  color:#fff;
+}
